@@ -1,0 +1,19 @@
+.uxci-login{
+    margin-top: 50px;
+}
+
+.uxci-login .actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.uxci-login .urts-select{
+    width: 100%;
+}
+
+.uxci-login  .actions > .btn-save{
+    width: 200px;
+}

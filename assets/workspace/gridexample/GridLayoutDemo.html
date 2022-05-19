@@ -1,0 +1,23 @@
+<div class="demo-grid">
+    <div class="areas" :class="['grid-' + gridSize]">
+        <div class="area" v-for="area in areas" :key="area.id" :id="'area-' + area.id"
+             :class="{'moving':area.moving,'overlap':area.overlap}"
+             :style="{gridArea:area.loc,backgroundColor:area.color}"/>
+    </div>
+    <div class="dragging-box"
+         :class="[draggingBox.status]"
+         :style="{backgroundColor:draggingBox.bg,left:draggingBox.x + 'px',top:draggingBox.y + 'px',width:draggingBox.w + 'px',height:draggingBox.h + 'px'}">
+    </div>
+    <div class="cells" :class="['grid-' + gridSize]" :style="{cursor:cursor}">
+        <template v-for="(row,index) in gridData">
+            <div class="cell" v-for="c in row" :key="c.id"
+                 :class="{'selected':c.selected}"
+                 :style="{gridArea:c.id}"
+                 @mousedown="handleMouseDown($event,c)"
+                 @mouseup="handleMouseUp($event,c)"
+                 @mousemove="handleMouseOver($event,c)"
+                 @dblclick="handleDblClick($event,c)">
+            </div>
+        </template>
+    </div>
+</div>

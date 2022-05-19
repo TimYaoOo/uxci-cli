@@ -1,0 +1,18 @@
+<transition name="popup" @enter="onAnimateEnter" @after-leave="onAnimateLeft">
+    <div class="s-popup-ct" v-show="show" :class="[view]">
+        <div class="popup">
+            <div class="popup-header" v-show="title">
+                <h3 class="popup-title">{{title}}</h3>
+            </div>
+            <div class="popup-body">
+                <component :is="view" :data="data"></component>
+            </div>
+            <div class="popup-buttons" @click="onBtnClick" v-show="buttons.length">
+                <button class="btn btn-link btn-icon-text" v-for="btn in buttons" :key="btn.id" :id="btn.id">
+                    <i :class="btn.icon" v-if="btn.icon"></i>
+                    {{btn.text}}
+                </button>
+            </div>
+        </div>
+    </div>
+</transition>

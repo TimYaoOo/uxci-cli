@@ -1,0 +1,6 @@
+.container {
+    --animate-duration: 2s;
+}
+.a {
+    color: red;
+}

@@ -1,0 +1,10 @@
+{
+  "series": [
+    {
+      "name": "业务指标",
+      "type": "gauge",
+      "detail": {"formatter":"{value}%"},
+      "data": [{"value": 13, "name": "完成率"}]
+    }
+  ]
+}

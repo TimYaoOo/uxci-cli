@@ -1,0 +1,18 @@
+<div class="mdi-window widget-box" v-show="show" @click="onFocus" :class="[{'fullscreen':fullscreen,'moving':moving},exCls]" :style="{zIndex:level,top:y + 'px',left: x +'px',width:width + 'px', height : height + 'px'}">
+    <div class="widget-header widget-header-flat" :class="{'hide':noHeader}">
+		<div class="mdi-title smaller blue2">
+			<i class="header-icon" :class="icon"></i>
+			<span>{{title}}</span>
+		</div>
+        <div class="widget-toolbar" @click="toolClick">
+            <a v-if="enableToolMini" href="javascript:void(0)" data-act="fullscreen">
+                <i class="ace-icon zmdi" :class="{'zmdi-arrow-left-bottom':fullscreen,'zmdi-arrow-right-top':!fullscreen}"></i>
+            </a>
+            <a v-if="enableToolClose" href="javascript:void(0)" data-act="close">
+                <i class="ace-icon zmdi zmdi-close"></i>
+            </a>
+        </div>
+    </div>
+    <div class="widget-body" :class="{'no-scroller':noScroller}">
+    </div>
+</div>

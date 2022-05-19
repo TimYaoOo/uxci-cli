@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     {{if .mobile}}
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,minimal-ui">
+         <meta name="apple-mobile-web-app-capable" content="yes" />
+     {{end}}
+    <title>{{.title}}</title>
+	<script type="text/javascript" src="{{.bootJs}}"></script>
+    <script type="text/javascript">
+        (function () {
+            const clearSG = function () {
+                const ss = document.querySelectorAll("head script");
+                for(let i = 0; i < ss.length; i ++){
+                    ss[i].parentNode.removeChild(ss[i]);
+                }
+            };
+            window.onload = function () {
+                const env = JSON.parse({{.env}});
+                const  modConf = JSON.parse({{.mod}})
+                $env.urlParams["clz"] = {{.clz}}
+                $env.urlParams["init"] = {{.init}}
+                $env.loader = env.id;
+
+                $create("ssdev.ux.WebLoader").then(function (loader) {
+                    loader.on("moduleLoaded",function (m) {
+                        $event.emit("moduleLoaded",m);
+                    });
+                    loader.on("moduleLoadError",function (e) {
+                        $event.emit("moduleLoadError",e);
+                        console.error(e);
+                    });
+                    loader.modConf = modConf
+                    loader.init(env);
+                },function (e) {
+                    console.error(e);
+                    $event.emit("moduleLoadError",e);
+                });
+            };
+            clearSG();
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>

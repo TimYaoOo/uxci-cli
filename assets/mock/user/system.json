@@ -1,0 +1,14 @@
+{
+  "id": "system",
+  "pwd": "202cb962ac59075b964b07152d234b70",
+  "urts": [
+    {
+      "id": "1",
+      "avatar": "",
+      "displayName": "机构1-系统管理员",
+      "userName":"system",
+      "tenantId":"bsoft",
+      "apps": ["app1","app2"]
+    }
+  ]
+}

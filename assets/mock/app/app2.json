@@ -1,0 +1,23 @@
+{
+  "id": "app2",
+  "name": "应用2",
+  "icon": "zmdi zmdi-chart",
+  "items": [{
+      "id": "relations",
+      "name": "家庭成员",
+      "icon": "zmdi zmdi-home bgm-deeppurple",
+      "platform": 768
+    },
+    {
+      "id": "apps",
+      "name": "应用管理",
+      "icon": "zmdi zmdi-local-activity",
+      "platform": 768
+    },
+    {
+      "id": "serverNodes",
+      "name": "服务节点",
+      "icon": "zmdi zmdi-share bgm-amber",
+      "platform": 768
+    }]
+}

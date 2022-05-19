@@ -1,0 +1,13 @@
+.s-mask{
+    position: absolute;
+    top:0;right: 0;bottom: 0;left: 0;
+    z-index: 11;
+}
+
+.s-mask.active{
+    background-color: rgba(0,0,0,0.15);
+}
+
+.s-mask.active~*:not(.mdi-window):not(.s-popup-ct){
+    filter: blur(3px) contrast(.9) brightness(.9);
+}

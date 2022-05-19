@@ -1,0 +1,17 @@
+<transition :name="slideAnimate" @enter="onAnimateEnter" @after-leave="onAnimateLeft">
+    <div class="pop" :class="[{'disable-enter-animate':disableEnterAnimate,'disable-leave-animate':disableLeaveAnimate,'active':active},exCls]" v-show="show">
+        <div class="pop-header" v-show="!noHeader">
+            <div class="pop-title pull-left">
+                <i class="header-icon" :class="[headerIcon]" v-show="headerIcon"></i>
+                <span>{{title}}</span>
+            </div>
+            <div class="pop-tools actions pull-right" @click="toolClick">
+                <a data-act="quit" v-show="!noClose" href="javascript:void(0)">
+                    <i class="zmdi zmdi-close"></i>
+                </a>
+            </div>
+        </div>
+        <div class="pop-body">
+        </div>
+    </div>
+</transition>

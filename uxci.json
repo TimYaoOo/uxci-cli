@@ -1,0 +1,40 @@
+{
+  "ServerPort": 8082,
+  "watch": true,
+  "workflows": [
+    {
+      "dst": "assets/web/"
+    },{
+      "dst": "assets/ux-loaders/"
+    },{
+      "src": "assets/workspace/",
+      "dst": "assets/web/dist/",
+      "tasks": ["iife","copy","minify"]
+    },{
+      "src": "assets/workspace/babelcmdline",
+      "dst": "assets/web/dist/babelcmdline",
+      "tasks": [{
+        "id": "cmd",
+        "tps": [".ts"],
+        "cmd": ["babel", "--presets", "@babel/preset-typescript","{srcFile}", "--out-file","{dstFile}"]
+      }]
+    }],
+  "defines": {
+    "babel":"node_modules/.bin/babel",
+    "rollup":"node_modules/rollup/dist/bin/rollup",
+    "sfcCompiler": "assets/lib/sfc/compiler.js"
+  },
+  "importMaps": {
+    "react":"node_modules/react/umd/react.development.js",
+    "react-dom":"node_modules/react-dom/umd/react-dom.development.js",
+    "moment": "node_modules/moment/min/moment.min.js",
+    "vue": "node_modules/vue/dist/vue.min.js",
+    "antd": "node_modules/antd/dist/antd.min.js",
+    "antd-css": "node_modules/antd/dist/antd.min.css"
+  },
+  "backend": {
+    "enable": true,
+    "url": "http://10.10.2.12:9085",
+    "cacheDir": "assets/cache/"
+  }
+}

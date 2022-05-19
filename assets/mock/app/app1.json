@@ -1,0 +1,54 @@
+{
+  "id": "app1",
+  "name": "应用1",
+  "icon": "zmdi zmdi-storage",
+  "items": [
+    {
+      "id": "dashboard",
+      "name": "公司框架",
+      "icon": "zmdi zmdi-view-dashboard bgm-orange",
+      "url" : "workspace.gridexample.GridLayoutDemo",
+      "platform": 768,
+      "properties": {
+        "width": 1680,
+        "height": 715,
+        "target": "popover"
+      }
+    },
+    {
+      "id": "cloudBox",
+      "name": "Vue",
+      "icon": "zmdi zmdi-cloud-box bgm-gray",
+      "platform": 1023,
+      "url" : "/workspace/vueexample/main.js",
+      "properties": {
+        "target": "popover",
+        "format": "extra",
+        "subName": "vueexample.main"
+      }
+    },
+    {
+      "id": "shoppingCart",
+      "name": "React",
+      "icon": "zmdi zmdi-shopping-cart bgm-indigo",
+      "url" : "/workspace/reactexample/index.html",
+      "platform": 768,
+      "properties": {
+        "target": "popover",
+        "format": "extra",
+        "subName": "reactexample.main"
+      }
+    },
+    {
+      "id": "comments",
+      "name": "Ext6",
+      "icon": "fa fa-bar-chart",
+      "url": "ssdev.bbp.role.RoleMainView",
+      "properties": {
+        "target": "popover",
+        "loader": "desktop-ext6",
+        "subName": "extApp"
+      },
+      "platform": 1023
+    }]
+}

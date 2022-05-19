@@ -1,0 +1,37 @@
+<el-container class="uxci-portal" :class="{block:!portalReady}">
+    <el-header>
+        <div class="profile">
+            <img :src="urt.avatar">
+            <span class="user-name">{{urt.displayName}}</span>
+        </div>
+        <el-menu :default-active="currentApp" @select="onAppChange" class="main-menu" mode="horizontal" text-color="#fff" active-text-color="#ffd04b">
+            <el-menu-item v-for="app in apps" :key="app.id" :index="app.id">
+                <i class="icon-tab" :class="app.icon"></i>
+                <span>{{app.name}}</span>
+            </el-menu-item>
+        </el-menu>
+    </el-header>
+    <el-container class="sub-container">
+        <el-aside width="170px">
+            <el-menu class="sub-menu"  text-color="#fff">
+                <template v-for="mod in appMods">
+                    <el-submenu index="mod.id" v-if="mod.modules">
+                        <template slot="title">
+                            <i :class="[mod.icon]"></i>
+                            <span>{{mod.name}}</span>
+                        </template>
+                        <el-menu-item @click="onModIconClick(subMod)" class="nav-item"  v-for="subMod in mod.modules" :key="subMod.id" :class="{active:subMod.active,loading:subMod.loading}"  :index="subMod.id">
+                            <i :class="[subMod.icon]"></i>
+                            <span>{{subMod.name}}</span>
+                        </el-menu-item>
+                    </el-submenu>
+                    <el-menu-item @click="onModIconClick(mod)" class="nav-item" :class="{active:mod.active,loading:mod.loading}" :key="mod.id"  :index="mod.id" v-if="!mod.modules">
+                        <i :class="[mod.icon]"></i>
+                        <span>{{mod.name}}</span>
+                    </el-menu-item>
+                </template>
+            </el-menu>
+        </el-aside>
+        <el-main class="main-container"></el-main>
+    </el-container>
+</el-container>

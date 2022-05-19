@@ -1,0 +1,116 @@
+.demo-grid {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.demo-grid > .areas,.demo-grid > .cells{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    opacity: 0.3;
+}
+
+.demo-grid > .grid-128{
+    grid-template-columns: repeat(auto-fill, 128px);
+    grid-template-rows: repeat(auto-fill, 128px);
+    grid-auto-rows: 128px;
+    grid-auto-columns: 128px;
+}
+
+
+.demo-grid > .grid-96{
+    grid-template-columns: repeat(auto-fill, 80px);
+    grid-template-rows: repeat(auto-fill, 80px);
+    grid-auto-rows: 80px;
+    grid-auto-columns: 80px;
+}
+
+
+.demo-grid > .grid-64{
+    grid-template-columns: repeat(auto-fill, 64px);
+    grid-template-rows: repeat(auto-fill, 64px);
+    grid-auto-rows: 64px;
+    grid-auto-columns: 64px;
+}
+
+.demo-grid > .grid-48{
+    grid-template-columns: repeat(auto-fill, 48px);
+    grid-template-rows: repeat(auto-fill, 48px);
+    grid-auto-rows: 48px;
+    grid-auto-columns: 48px;
+}
+
+.demo-grid > .grid-32{
+    grid-template-columns: repeat(auto-fill, 32px);
+    grid-template-rows: repeat(auto-fill, 32px);
+    grid-auto-rows: 32px;
+    grid-auto-columns: 32px;
+}
+
+.demo-grid > .areas{
+    opacity: 1;
+}
+
+.demo-grid > .areas > .area{
+    opacity: 1;
+    /*box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.23);*/
+}
+
+.demo-grid > .areas > .area.moving{
+    opacity: 0.3;
+}
+
+.demo-grid > .areas > .area.overlap{
+    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.73);
+    opacity: 0.3;
+}
+
+.demo-grid > .cells.dragging{
+    cursor: cell
+}
+
+.demo-grid > .cells > .cell{
+    background: #dddddd;
+    border: dashed 1px #878787;
+    text-align: center;
+    line-height: 64px;
+    box-sizing: border-box;
+}
+
+.demo-grid > .cells > .cell.selected{
+    background-color: transparent;
+    border: none;
+    opacity: 0;
+}
+
+.demo-grid > .dragging-box {
+    transition: all;
+    position: absolute;
+    display: none;
+    background: #61a273;
+    opacity: 0.3;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.87);
+}
+
+.demo-grid > .dragging-box.creating{
+    display: block;
+}
+
+.demo-grid > .dragging-box.selected{
+    display: block;
+    box-shadow:none;
+    border: #fff59d 3px dashed;
+    opacity: 0.7;
+}
+
+.demo-grid > .dragging-box.invalid{
+    display: block;
+    box-shadow:none;
+    border: red 3px dashed;
+    opacity: 0.3;
+}
